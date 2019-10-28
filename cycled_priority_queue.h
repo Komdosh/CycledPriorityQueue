@@ -5,14 +5,23 @@
 #ifndef CYCLEDPRIORITYQUEUE_CYCLED_PRIORITY_QUEUE_H
 #define CYCLEDPRIORITYQUEUE_CYCLED_PRIORITY_QUEUE_H
 
-struct cycled_priority_queue {
+typedef struct cpq_node cpq_node_t;
+typedef struct cpq cpq_t;
 
+struct cpq_node {
+    void* data;
+    cpq_node_t* next;
+    cpq_node_t* prev;
 };
 
-typedef struct cycled_priority_queue cycled_priority_queue_t;
+struct cpq {
+    cpq_node_t* head;
+    cpq_node_t* tail;
+};
 
-int init(cycled_priority_queue_t *);
-int enqueue(cycled_priority_queue_t* q, void *data);
-int dequeue(cycled_priority_queue_t* q, void **data);
+int init(cpq_t *);
+int enqueue(cpq_t* q, void *data);
+int dequeue(cpq_t* q, void **data);
+void printList(cpq_node_t* node);
 
 #endif //CYCLEDPRIORITYQUEUE_CYCLED_PRIORITY_QUEUE_H
