@@ -12,7 +12,7 @@ int main() {
     enqueue(&cpq, (void *)4);
     int* a = (int*)malloc(sizeof(int));
     dequeue(&cpq, (void**)&a);
-    printf("%d/ ", a);
-    printList(cpq.head);
+    printf("%d|   ", a);
+    printList(cpq);
     return 0;
 }
